@@ -49,18 +49,18 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'cmstest';
-$db['default']['password'] = 's8WYpAqL3rNUB7XB';
-$db['default']['database'] = 'cmstest';
+$db['default']['username'] = 'mednet';
+$db['default']['password'] = '6sf6RQXmC2qrbcEX';
+$db['default']['database'] = 'mednet';
 $db['default']['dbdriver'] = 'mysqli';
-$db['default']['dbprefix'] = '';
+$db['default']['dbprefix'] = 'mednet_';
 $db['default']['pconnect'] = FALSE;
 $db['default']['db_debug'] = TRUE;
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';
 $db['default']['char_set'] = 'utf8';
 $db['default']['dbcollat'] = 'utf8_general_ci';
-$db['default']['swap_pre'] = '';
+$db['default']['swap_pre'] = '%PRE%';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 

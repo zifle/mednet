@@ -21,7 +21,7 @@
  *
  */
 	switch (dirname(__FILE__)) {
-		case '/media/Data/www/webint/cms2':
+		case '/home/zifle/Dropbox/www/mednet':
 			define('ENVIRONMENT', 'development');
 			break;
 		
