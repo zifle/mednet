@@ -188,7 +188,7 @@ $config['directory_trigger']	= 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 1;
+$config['log_threshold'] = 2;
 
 /*
 |--------------------------------------------------------------------------
@@ -253,8 +253,8 @@ $config['encryption_key'] = 'fy4782w3hg38qw787T&^RT^*%R&284yrt';
 |
 */
 $config['sess_cookie_name']		= 'cisession';
-$config['sess_expiration']		= 7200;
-$config['sess_expire_on_close']	= TRUE;
+$config['sess_expiration']		= 0;
+$config['sess_expire_on_close']	= FALSE;
 $config['sess_encrypt_cookie']	= TRUE;
 $config['sess_use_database']	= TRUE;
 $config['sess_table_name']		= 'ci_sessions';

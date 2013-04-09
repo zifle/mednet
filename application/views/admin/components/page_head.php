@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title><?php echo $meta_title; ?></title>
+	<title><?php echo $meta_title; ?> - MEDNET</title>
 	<meta charset="UTF-8">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="<?php echo site_url('css/bootstrap.min.css'); ?>">
 	<script type="text/javascript" src="<?php echo site_url('js/bootstrap.min.js'); ?>"></script>
 	<!-- /Bootstrap -->
+	<link rel="stylesheet" href="<?php echo site_url('css/global.css'); ?>">
+	<?php if ($is_admin): ?>
 	<link rel="stylesheet" href="<?php echo site_url('css/admin.css'); ?>">
 	<!-- Datepicker -->
 	<link rel="stylesheet" href="<?php echo site_url('css/datepicker.css'); ?>">
 	<script type="text/javascript" src="<?php echo site_url('js/bootstrap-datepicker.js'); ?>"></script>
 	<!-- /Datepicker -->
-	<?php if(isset($sortable) && $sortable == TRUE): ?>
-		<script type="text/javascript" src="<?php echo site_url('js/jquery-ui-1.10.2.custom.min.js'); ?>"></script>
-		<script type="text/javascript" src="<?php echo site_url('js/jquery.mjs.nestedSortable.js'); ?>"></script>
-	<?php ENDIF; ?>
 	<!-- TinyMCE -->
 	<script type="text/javascript" src="<?php echo site_url('js/tiny_mce/tiny_mce.js'); ?>"></script>
 	<script type="text/javascript">
@@ -38,5 +36,11 @@
 		});
 	</script>
 	<!-- /TinyMCE -->
-
+	<!-- Chosen plugin -->
+	<script type="text/javascript" src="<?php echo site_url('js/chosen.jquery.min.js'); ?>"></script>
+	<link rel="stylesheet" href="<?php echo site_url('css/chosen.css'); ?>">
+	<!-- /Chosen plugin -->
+	<link rel="stylesheet" href="<?php echo site_url('css/admin_styles.css'); ?>">
+	<script type="text/javascript" src="<?php echo site_url('js/admin_scripts.js'); ?>"></script>
+	<?php ENDIF; ?>
 </head>

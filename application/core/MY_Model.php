@@ -87,5 +87,22 @@ class MY_Model extends CI_Model {
 		}
 		return $data;
 	}
+
+	public function search($query, $like, $and = FALSE) {
+		if ($and) $method = 'like';
+		else $method = 'or_like';
+		
+		foreach ($like as $col => $side) {
+			$this->db->$method($col, $query, $side);
+		}
+
+		if (!count($this->db->ar_orderby)) {
+			$this->db->order_by($this->_order_by);
+		}
+		return
+			$this->db
+			->get($this->_table_name)
+			->result();
+	}
 	
 }

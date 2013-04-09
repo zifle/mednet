@@ -59,13 +59,16 @@ class Admin_user_M extends MY_Model {
 				);
 				$this->session->set_userdata($data);
 				$this->statuses->addSuccess('Du blev logget ind');
+				return TRUE;
 			}
 			else {
 				$this->statuses->addError('Login oplysninger ikke korrekte');
+				return FALSE;
 			}
 		}
 		else {
 			$this->statuses->addError('Login oplysninger ikke korrekte');
+			return FALSE;
 		}
 	}
 	

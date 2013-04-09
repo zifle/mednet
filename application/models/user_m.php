@@ -15,57 +15,75 @@ class User_M extends MY_Model {
 			)
 		);
 
-	public $rules_admin = array(
+	public $register_rules = array(
 			'name' => array(
 				'field' => 'name',
-				'label' => 'Name',
-				'rules' => 'trim|required|xss_clean'
+				'label' => 'Navn',
+				'rules' => 'trim|max_length[70]|xss_clean'
 			),
 			'email' => array(
 				'field' => 'email',
 				'label' => 'Email',
-				'rules' => 'trim|required|valid_email|callback__unique_email|xss_clean'
+				'rules' => 'trim|required|valid_email|max_length[255]|callback__unique_email|xss_clean'
+			),
+			'email2' => array(
+				'field' => 'email2',
+				'label' => 'Gentag email',
+				'rules' => 'trim|required|matches[email]|xss_clean'
 			),
 			'password' => array(
 				'field' => 'password',
 				'label' => 'Password',
-				'rules' => 'trim|matches[password_confirm]'
+				'rules' => 'trim|required'
 			),
-			'password_confirm' => array(
-				'field' => 'password_confirm',
-				'label' => 'Confirm password',
-				'rules' => 'trim|matches[password]'
+			'password2' => array(
+				'field' => 'password2',
+				'label' => 'Gentag Password',
+				'rules' => 'trim|required|matches[password]'
 			)
 		);
 
 	protected $_table_name = 'users';
+	protected $_primary_key = 'users_id';
 	protected $_order_by = 'name';
 	protected $_timestamps = FALSE;
 
 	public function __construct() {
 		parent::__construct();
+		$this->load->library('PBKDF2', 'pbkdf2');
 	}
 
 	public function login() {
 		$user = $this->get_by(array(
-			'email' => $this->input->post('email'),
-			'password' => $this->hash($this->input->post('password'))
+			'email' => $this->input->post('email')
 		), TRUE);
 
 		if (count($user)) {
-			// Log in user
-			$data = array(
-				'name' => $user->name,
-				'email' => $user->email,
-				'id' => $user->id,
-				'loggedin' => TRUE
-			);
-			$this->session->set_userdata($data);
+			// Check password
+			if ($this->confirm_hash($this->input->post('password'), $user->passhash)) {
+				// Log in user
+				$data = array(
+					'name' => $user->name,
+					'email' => $user->email,
+					'loggedin' => TRUE
+				);
+				$this->session->set_userdata($data);
+				$this->statuses->addSuccess('Du blev logget ind');
+				return TRUE;
+			}
+			else {
+				$this->statuses->addError('Login oplysninger ikke korrekte');
+				return FALSE;
+			}
+		}
+		else {
+			$this->statuses->addError('Login oplysning ikke korrekte');
+			return FALSE;
 		}
 	}
 	
 	public function logout() {
-		$this->session->sess_destroy();
+		$this->session->unset_userdata(array('loggedin' => '', 'name' => '', 'email' => ''));
 	}
 	
 	public function loggedin() {
@@ -81,7 +99,11 @@ class User_M extends MY_Model {
 	}
 
 	public function hash($string) {
-		return hash('sha512', $string . config_item('encryption_key'));
+		return $this->pbkdf2->create_hash($string);
+	}
+
+	public function confirm_hash($provided, $true) {
+		return $this->pbkdf2->validate_password($provided, $true);
 	}
 	
 }

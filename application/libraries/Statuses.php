@@ -100,7 +100,7 @@ class Statuses {
 	}
 
 	// Print statuses, use first argument TRUE, if string should be returned.
-	public function show_statuses($silent = FALSE, $method = NULL, $close_button = TRUE) {
+	public function show_statuses($method = NULL, $close_button = TRUE, $silent = TRUE) {
 		if ($method === NULL) $method = $this->print_method();
 		$str = $this->{'_print_'.$method}($close_button);
 		if ($silent) return $str;

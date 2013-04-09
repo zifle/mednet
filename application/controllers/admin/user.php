@@ -27,7 +27,7 @@ class User extends Admin_Controller {
 		
 		// Set up the form
 		$rules = $this->admin_user_m->rules_admin;
-		$id || $rules['password']['rules'] .= '|required'; // ??????
+		$id || $rules['password']['rules'] .= '|required';
 		$this->form_validation->set_rules($rules);
 
 		// Process the form
@@ -56,8 +56,6 @@ class User extends Admin_Controller {
 		// Set form
 		$rules = $this->admin_user_m->rules;
 		$this->form_validation->set_rules($rules);
-
-		$this->form_validation->set_message('required', 'Du skal indtaste %s');
 
 		// Process the form
 		if ($this->form_validation->run() == TRUE) {

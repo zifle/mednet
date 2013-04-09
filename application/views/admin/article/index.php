@@ -1,29 +1,35 @@
-<section>
-	<h2>News articles</h2>
-	<?php echo anchor('admin/article/edit', '<i class="icon-plus"></i> Add an article'); ?>
-	<table class="table">
-		<thead>
+<h3 class="page-title">Nyheder</h3>
+<?php echo form_open('admin/article/search/'); ?>
+	<div class="input-append">
+		<input type="text" name="search_query" value="<?php echo $search_query; ?>" id="appendedInputButton" class="span8">
+		<button type="submit" class="btn span1">Søg</button>
+	</div>
+<?php echo form_close(); ?>
+<?php if ($search_query): ?><div class="alert alert-info">Der blev fundet <?php echo $c = count($articles); ?> resultat<?php echo $c === 1 ?'':'er';?></div><?php ENDIF; ?>
+<table class="table table-striped">
+	<thead>
+		<th>Udgivelses dato</th>
+		<th>Titel</th>
+		<th>Teaser</th>
+		<th>Billede</th>
+		<th class="span1">Redgier</th>
+		<th class="span1">Slet</th>
+	</thead>
+	<tbody>
+		<?php foreach ($articles as $article): ?>
 			<tr>
-				<th>Title</th>
-				<th>Publication date</th>
-				<th>Edit</th>
-				<th>Delete</th>
+				<td><?php echo date('Y-m-d', strtotime($article->publish)); ?></td>
+				<td><?php echo $article->title; ?></td>
+				<td><?php echo !empty($article->teaser) ? $article->teaser : firstline_or_numwords(strip_tags($article->content), 100); ?></td>
+				<td><?php echo $article->image ? '<img src="'.site_url('admin/article/image/'.$article->articles_id.'/130/50').'" alt="" />' : 'Intet billede'; ?></td>
+				<td><?php echo btn_edit('admin/article/edit/'.$article->articles_id); ?></td>
+				<td><?php echo btn_delete('admin/article/delete/'.$article->articles_id); ?></td>
 			</tr>
-		</thead>
-		<tbody>
-<?php if (count($articles)): foreach ($articles as $article): ?>
+		<?php ENDFOREACH; ?>
+		<?php if (empty($articles)): ?>
 			<tr>
-				<td><?php echo anchor('admin/article/edit/' . $article->id, $article->title); ?></td>
-				<td><?php echo $article->pubdate; ?></td>
-				<td><?php echo btn_edit('admin/article/edit/' . $article->id); ?></td>
-				<td><?php echo btn_delete('admin/article/delete/' . $article->id); ?></td>
+				<td colspan="6"><i>Der blev ikke fundet nogle nyheder.</i></td>
 			</tr>
-<?php ENDFOREACH; ?>
-<?php ELSE: ?>
-			<tr>
-				<td colspan="3">We could not find any articles.</td>
-			</tr>
-<?php ENDIF; ?>
-		</tbody>
-	</table>
-</section>
+		<?php ENDIF; ?>
+	</tbody>
+</table>

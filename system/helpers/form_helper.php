@@ -130,7 +130,7 @@ if ( ! function_exists('form_hidden'))
 
 		if ($recursing === FALSE)
 		{
-			$form = "\n";
+			$form = "";
 		}
 
 		if (is_array($name))
@@ -144,7 +144,7 @@ if ( ! function_exists('form_hidden'))
 
 		if ( ! is_array($value))
 		{
-			$form .= '<input type="hidden" name="'.$name.'" value="'.form_prep($value, $name).'" />'."\n";
+			$form .= '<input type="hidden" name="'.$name.'" value="'.form_prep($value, $name).'" />';
 		}
 		else
 		{
@@ -617,6 +617,7 @@ if ( ! function_exists('form_prep'))
 	function form_prep($str = '', $field_name = '')
 	{
 		static $prepped_fields = array();
+		
 
 		// if the field name is an array we do this recursively
 		if (is_array($str))
@@ -625,10 +626,10 @@ if ( ! function_exists('form_prep'))
 			{
 				$str[$key] = form_prep($val);
 			}
-
+			
 			return $str;
 		}
-
+		
 		if ($str === '')
 		{
 			return '';
@@ -642,7 +643,7 @@ if ( ! function_exists('form_prep'))
 		{
 			return $str;
 		}
-
+		
 		$str = htmlspecialchars($str);
 
 		// In case htmlspecialchars misses these.
@@ -652,7 +653,7 @@ if ( ! function_exists('form_prep'))
 		{
 			$prepped_fields[$field_name] = $field_name;
 		}
-
+		
 		return $str;
 	}
 }
@@ -680,10 +681,9 @@ if ( ! function_exists('set_value'))
 			{
 				return $default;
 			}
-
+			
 			return form_prep($_POST[$field], $field);
 		}
-
 		return form_prep($OBJ->set_value($field, $default), $field);
 	}
 }
@@ -1034,7 +1034,6 @@ if ( ! function_exists('_get_validation_object'))
 
 		// We set this as a variable since we're returning by reference.
 		$return = FALSE;
-		
 		if (FALSE !== ($object = $CI->load->is_loaded('form_validation')))
 		{
 			if ( ! isset($CI->$object) OR ! is_object($CI->$object))

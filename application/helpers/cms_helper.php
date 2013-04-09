@@ -4,35 +4,13 @@ function btn_edit($uri) {
 }
 function btn_delete($uri) {
     return anchor($uri, '<i class="icon-remove"></i>', array(
-            'onclick' => 'return confirm("You are about to delete a record. THis cannot be undone. Are you sure?");'
+            'onclick' => 'return confirm(\'Du er ved at slette indhold. Dette kan IKKE fortrydes. Er du sikker på at du vil fortsætte?\');'
         ));
 }
 
-function article_link($article) {
-    return 'article/' . intval($article->id) . '/' . e($article->slug);
-}
-
-function article_links($articles) {
-    $string = '<ul>';
-    foreach ($articles as $article) {
-        $string .= '<li>';
-        $url = article_link($article);
-        $string .= '<h3>'. anchor($url, e($article->title)) .'</h3>';
-        $string .= '<p class="pubdate">'. e($article->pubdate) .'</p>';
-        $string .= '</li>';
-    }
-    $string .= '</ul>';
-    return $string;
-}
-
-function get_excerpt($article, $numwords = 50) {
-    $string = '';
-    $url = 'article/' . intval($article->id) . '/' . e($article->slug);
-    $string .= '<h2>'. anchor($url, e($article->title)) .'</h2>';
-    $string .= '<p class="pubdate">'. e($article->pubdate) .'</p>';
-    $string .= '<p>'. e(limit_to_numwords(strip_tags($article->body), $numwords)) .'</p>';
-    $string .= '<p>'. anchor($url, 'Read more >', array('title' => e($article->title))) .'</p>';
-    return $string;
+function firstline_or_numwords($string, $numwords) {
+    if (strpos($string, PHP_EOL) < $numwords && strpos($string, PHP_EOL) !== FALSE) return substr($string, 0, strpos($string, PHP_EOL));
+    return limit_to_numwords($string, $numwords);
 }
 
 function limit_to_numwords($string, $numwords) {
@@ -50,65 +28,52 @@ function e($string) {
 }
 
 function get_menu($array, $child = FALSE) {
-    $CI =& get_instance();
-    $str = '';
-
-    if (count($array)) {
-        $str .= $child == FALSE ? '<ul class="nav">'.PHP_EOL : '<ul class="dropdown-menu">'.PHP_EOL;
-
-        foreach ($array as $item) {
-            $active = $CI->uri->segment(1) == $item['slug'] ? TRUE : FALSE;
-            if (isset($item['children']) && count($item['children'])) {
-                $str .= $active ? '<li class="dropdown active">' : '<li class="dropdown">';
-                $str .= '<a class="dropdown-toggle" data-toggle="dropdow" href="'. site_url(e($item['slug'])) .'">'.e($item['title']);
-                $str .= '<b class="caret"></b></a>'.PHP_EOL;
-                $str .= get_menu($item['children'], TRUE);
-            }
-            else {
-                $str .= $active ? '<li class="active">' : '<li>';
-                $str .= '<a href="'. site_url($item['slug']) .'">'.e($item['title']).'</a>'.PHP_EOL;
-            }
-            $str .= '</li>' . PHP_EOL;
+    $str = '<ul class="'.($child?'dropdown-menu':'nav').'">';
+    foreach ($array as $title => $slug) {
+        $dropdown = FALSE;
+        if (is_array($slug)) {
+            $dropdown = TRUE;
         }
-
-        $str .= '</ul>' . PHP_EOL;
+        $str .= '<li'.($dropdown?' class="dropdown"':'').'>';
+        if (!$dropdown)
+            $str .= '<a href="'.site_url($slug).'">'.$title.'</a>';
+        else {
+            $str .= '<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.$title.' <b class="caret"></b></a>';
+            $str .= get_menu($slug, TRUE);
+        }
+        $str .= '</li>';
     }
-
+    $str .= '</ul>';
     return $str;
 }
 
-
-/**
- * Dump helper. Functions to dump variables to the screen, in a nicley formatted manner.
- * @author Joost van Veen
- * @version 1.0
- */
-if (!function_exists('dump')) {
-    function dump ($var, $label = 'Dump', $echo = TRUE)
-    {
-        // Store dump in variable 
-        ob_start();
-        var_dump($var);
-        $output = ob_get_clean();
-        
-        // Add formatting
-        $output = preg_replace("/\]\=\>\n(\s+)/m", "] => ", $output);
-        $output = '<pre style="background: #FFFEEF; color: #000; border: 1px dotted #000; padding: 10px; margin: 10px 0; text-align: left;">' . $label . ' => ' . $output . '</pre>';
-        
-        // Output
-        if ($echo == TRUE) {
-            echo $output;
+function get_sidebar($array) {
+    $str = '';
+    foreach ($array as $module) {
+        $str .= '<div class="row"><div class="span3">';
+        switch ($module['type']) {
+            case 'button':
+                $str .= anchor($module['slug'], $module['label'], 'class="btn pull-right"');
+                break;
+            case 'index':
+                $str .= '<span class="title">'.$module['title'].'</span><div class="index">';
+                foreach ($module['data'] as $index) {
+                    $str .= anchor($module['base'].strtolower($index->letter), strtoupper($index->letter), 'class="index index-field"');
+                }
+                $str .= '</div>';
+                // var_dump($module['data']);
+                break;
+            case 'links':
+                if (empty($module['data'])) break;
+                $str .= '<span class="title">'.$module['title'].'</span>';
+                foreach ($module['data'] as $slug => $title) {
+                    $str .= anchor($slug, limit_to_numwords($title, 25), 'class="link"');
+                }
+                break;
+            default:
+                $str .= 'Module unknown ('.$module['type'].')';
         }
-        else {
-            return $output;
-        }
+        $str .= '</div></div>';
     }
-}
- 
- 
-if (!function_exists('dump_exit')) {
-    function dump_exit($var, $label = 'Dump', $echo = TRUE) {
-        dump ($var, $label, $echo);
-        exit;
-    }
+    return $str;
 }

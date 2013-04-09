@@ -1,32 +1,28 @@
-<h3><?php echo empty($page->id) ? 'Add a new page' : 'Edit page ' . $page->title; ?></h3>
-<?php echo validation_errors(); ?>
+<h3 class="page-title"><?php echo empty($page->pages_id) ? 'Opret side' : 'Rediger side ('.$page->title.')'; ?></h3>
 <?php echo form_open(); ?>
-<table class="table">
-	<tbody>
-		<tr>
-			<td>Parent</td>
-			<td><?php echo form_dropdown('parent_id', $pages_no_parents, $this->input->post('parent_id') ? $this->input->post('parent_id') : $page->parent_id); ?></td>
-		</tr>
-		<tr>
-			<td>Template</td>
-			<td><?php echo form_dropdown('template', array('page' => 'Page', 'news_archive' => 'News archive', 'homepage' => 'Homepage'), $this->input->post('template') ? $this->input->post('template') : $page->template); ?></td>
-		</tr>
-		<tr>
-			<td>Title</td>
-			<td><?php echo form_input('title', set_value('title', $page->title)); ?></td>
-		</tr>
-		<tr>
-			<td>Slug</td>
-			<td><?php echo form_input('slug', set_value('slug', $page->slug)); ?></td>
-		</tr>
-		<tr>
-			<td>Body</td>
-			<td><?php echo form_textarea('body', set_value('body', $page->body), 'class="tinymce"'); ?></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><?php echo form_submit('submit', 'Save', 'class="btn btn-primary"'); ?></td>
-		</tr>
-	</tbody>
-</table>
+<label class="row">
+	<div class="span2">Titel</div>
+	<?php echo form_input('title', set_value('title', $page->title)); ?>
+</label>
+<label class="row">
+	<div class="span2">Skabelon</div>
+	<?php echo form_input('template', set_value('template', $page->template), 'class="span3"'); ?>
+</label>
+<label class="row">
+	<div class="span2">Vises i footer</div>
+	<?php echo form_dropdown('footer', array(0 => 'Nej', 1 => 'Ja'), set_value('footer', $page->footer), 'data-placeholder="Skal siden vises i footeren" class="chzn-select"'); ?>
+</label>
+<label class="row">
+	<div class="span2">Indhold</div>
+	<?php echo form_textarea('content', set_value('content', $page->content), 'class="content span6"'); ?>
+</label>
+<div class="row">
+	<div class="span2"></div>
+	<?php echo form_submit('submit', 'Gem', 'class="btn"'); ?>
+</div>
 <?php echo form_close(); ?>
+<script>
+	$(function(){
+		$('.chzn-select').chosen();
+	});
+</script>
