@@ -35,6 +35,20 @@ class Pharmacy_m extends MY_Model {
 	public function __construct() {
 		parent::__construct();
 	}
+
+	public function get_top($limit) {
+		$this->db
+			->select('COUNT(pharmacy_visits_id) visits, pharmacies.*')
+			->join('pharmacy_visits', 'pharmacy = pharmacies_id', 'left')
+			->group_by('pharmacies_id')
+			->order_by('visits DESC, title ASC')
+			->limit($limit);
+		return $this->get();
+	}
+
+	public function addView($id) {
+		$this->db->set('pharmacy', $id)->insert('pharmacy_visits');
+	}
 	
 	public function get_new() {
 		$symptom = new stdClass();

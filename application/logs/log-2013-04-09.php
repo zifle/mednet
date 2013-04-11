@@ -15558,3 +15558,243 @@ DEBUG - 2013-04-09 23:31:17 --> File loaded: application/views/admin/components/
 DEBUG - 2013-04-09 23:31:17 --> File loaded: application/views/admin/_layout_main.php
 DEBUG - 2013-04-09 23:31:17 --> Final output sent to browser
 DEBUG - 2013-04-09 23:31:17 --> Total execution time: 0.0384
+DEBUG - 2013-04-09 23:37:20 --> Config Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Hooks Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Utf8 Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> UTF-8 Support Enabled
+DEBUG - 2013-04-09 23:37:20 --> URI Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Router Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Output Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Security Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Input Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-04-09 23:37:20 --> Language Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Loader Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Config file loaded: application/config/cms_config.php
+DEBUG - 2013-04-09 23:37:20 --> Helper loaded: url_helper
+DEBUG - 2013-04-09 23:37:20 --> Helper loaded: html_helper
+DEBUG - 2013-04-09 23:37:20 --> Helper loaded: cms_helper
+DEBUG - 2013-04-09 23:37:20 --> Database Driver Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Controller Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Helper loaded: form_helper
+DEBUG - 2013-04-09 23:37:20 --> Session Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Helper loaded: string_helper
+DEBUG - 2013-04-09 23:37:20 --> Encrypt Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Session garbage collection performed.
+DEBUG - 2013-04-09 23:37:20 --> Session routines successfully run
+DEBUG - 2013-04-09 23:37:20 --> Model Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Model Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Model Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Model Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> Model Class Initialized
+DEBUG - 2013-04-09 23:37:20 --> File loaded: application/views/admin/components/page_head.php
+DEBUG - 2013-04-09 23:37:20 --> File loaded: application/views/medicine/overview.php
+DEBUG - 2013-04-09 23:37:20 --> File loaded: application/views/admin/components/page_tail.php
+DEBUG - 2013-04-09 23:37:20 --> File loaded: application/views/admin/_layout_main.php
+DEBUG - 2013-04-09 23:37:20 --> Final output sent to browser
+DEBUG - 2013-04-09 23:37:20 --> Total execution time: 0.0359
+DEBUG - 2013-04-09 23:39:09 --> Config Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Hooks Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Utf8 Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> UTF-8 Support Enabled
+DEBUG - 2013-04-09 23:39:09 --> URI Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Router Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Output Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Security Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Input Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-04-09 23:39:09 --> Language Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Loader Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Config file loaded: application/config/cms_config.php
+DEBUG - 2013-04-09 23:39:09 --> Helper loaded: url_helper
+DEBUG - 2013-04-09 23:39:09 --> Helper loaded: html_helper
+DEBUG - 2013-04-09 23:39:09 --> Helper loaded: cms_helper
+DEBUG - 2013-04-09 23:39:09 --> Database Driver Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Controller Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Helper loaded: form_helper
+DEBUG - 2013-04-09 23:39:09 --> Session Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Helper loaded: string_helper
+DEBUG - 2013-04-09 23:39:09 --> Encrypt Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Session routines successfully run
+DEBUG - 2013-04-09 23:39:09 --> Model Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Model Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Model Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Model Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> Model Class Initialized
+DEBUG - 2013-04-09 23:39:09 --> File loaded: application/views/admin/components/page_head.php
+DEBUG - 2013-04-09 23:39:09 --> File loaded: application/views/medicine/overview.php
+DEBUG - 2013-04-09 23:39:09 --> File loaded: application/views/admin/components/page_tail.php
+DEBUG - 2013-04-09 23:39:09 --> File loaded: application/views/admin/_layout_main.php
+DEBUG - 2013-04-09 23:39:09 --> Final output sent to browser
+DEBUG - 2013-04-09 23:39:09 --> Total execution time: 0.0354
+DEBUG - 2013-04-09 23:39:23 --> Config Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Hooks Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Utf8 Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> UTF-8 Support Enabled
+DEBUG - 2013-04-09 23:39:23 --> URI Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Router Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Output Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Security Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Input Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-04-09 23:39:23 --> Language Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Loader Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Config file loaded: application/config/cms_config.php
+DEBUG - 2013-04-09 23:39:23 --> Helper loaded: url_helper
+DEBUG - 2013-04-09 23:39:23 --> Helper loaded: html_helper
+DEBUG - 2013-04-09 23:39:23 --> Helper loaded: cms_helper
+DEBUG - 2013-04-09 23:39:23 --> Database Driver Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Controller Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Helper loaded: form_helper
+DEBUG - 2013-04-09 23:39:23 --> Session Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Helper loaded: string_helper
+DEBUG - 2013-04-09 23:39:23 --> Encrypt Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Session routines successfully run
+DEBUG - 2013-04-09 23:39:23 --> Model Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Model Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Model Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Model Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> Model Class Initialized
+DEBUG - 2013-04-09 23:39:23 --> File loaded: application/views/admin/components/page_head.php
+DEBUG - 2013-04-09 23:39:23 --> File loaded: application/views/medicine/overview.php
+DEBUG - 2013-04-09 23:39:23 --> File loaded: application/views/admin/components/page_tail.php
+DEBUG - 2013-04-09 23:39:23 --> File loaded: application/views/admin/_layout_main.php
+DEBUG - 2013-04-09 23:39:23 --> Final output sent to browser
+DEBUG - 2013-04-09 23:39:23 --> Total execution time: 0.0327
+DEBUG - 2013-04-09 23:41:17 --> Config Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Hooks Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Utf8 Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> UTF-8 Support Enabled
+DEBUG - 2013-04-09 23:41:17 --> URI Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Router Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Output Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Security Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Input Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-04-09 23:41:17 --> Language Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Loader Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Config file loaded: application/config/cms_config.php
+DEBUG - 2013-04-09 23:41:17 --> Helper loaded: url_helper
+DEBUG - 2013-04-09 23:41:17 --> Helper loaded: html_helper
+DEBUG - 2013-04-09 23:41:17 --> Helper loaded: cms_helper
+DEBUG - 2013-04-09 23:41:17 --> Database Driver Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Controller Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Helper loaded: form_helper
+DEBUG - 2013-04-09 23:41:17 --> Session Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Helper loaded: string_helper
+DEBUG - 2013-04-09 23:41:17 --> Encrypt Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Session routines successfully run
+DEBUG - 2013-04-09 23:41:17 --> Model Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Model Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Model Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Model Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> Model Class Initialized
+DEBUG - 2013-04-09 23:41:17 --> File loaded: application/views/admin/components/page_head.php
+DEBUG - 2013-04-09 23:41:17 --> File loaded: application/views/medicine/overview.php
+DEBUG - 2013-04-09 23:41:17 --> File loaded: application/views/admin/components/page_tail.php
+DEBUG - 2013-04-09 23:41:17 --> File loaded: application/views/admin/_layout_main.php
+DEBUG - 2013-04-09 23:41:17 --> Final output sent to browser
+DEBUG - 2013-04-09 23:41:17 --> Total execution time: 0.0469
+DEBUG - 2013-04-09 23:41:41 --> Config Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Hooks Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Utf8 Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> UTF-8 Support Enabled
+DEBUG - 2013-04-09 23:41:41 --> URI Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Router Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Output Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Security Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Input Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-04-09 23:41:41 --> Language Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Loader Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Config file loaded: application/config/cms_config.php
+DEBUG - 2013-04-09 23:41:41 --> Helper loaded: url_helper
+DEBUG - 2013-04-09 23:41:41 --> Helper loaded: html_helper
+DEBUG - 2013-04-09 23:41:41 --> Helper loaded: cms_helper
+DEBUG - 2013-04-09 23:41:41 --> Database Driver Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Controller Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Helper loaded: form_helper
+DEBUG - 2013-04-09 23:41:41 --> Session Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Helper loaded: string_helper
+DEBUG - 2013-04-09 23:41:41 --> Encrypt Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Session routines successfully run
+DEBUG - 2013-04-09 23:41:41 --> Model Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Model Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Model Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Model Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> Model Class Initialized
+DEBUG - 2013-04-09 23:41:41 --> File loaded: application/views/admin/components/page_head.php
+DEBUG - 2013-04-09 23:41:41 --> File loaded: application/views/medicine/overview.php
+DEBUG - 2013-04-09 23:41:41 --> File loaded: application/views/admin/components/page_tail.php
+DEBUG - 2013-04-09 23:41:41 --> File loaded: application/views/admin/_layout_main.php
+DEBUG - 2013-04-09 23:41:41 --> Final output sent to browser
+DEBUG - 2013-04-09 23:41:41 --> Total execution time: 0.0331
+DEBUG - 2013-04-09 23:42:47 --> Config Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Hooks Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Utf8 Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> UTF-8 Support Enabled
+DEBUG - 2013-04-09 23:42:47 --> URI Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Router Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Output Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Security Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Input Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-04-09 23:42:47 --> Language Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Loader Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Config file loaded: application/config/cms_config.php
+DEBUG - 2013-04-09 23:42:47 --> Helper loaded: url_helper
+DEBUG - 2013-04-09 23:42:47 --> Helper loaded: html_helper
+DEBUG - 2013-04-09 23:42:47 --> Helper loaded: cms_helper
+DEBUG - 2013-04-09 23:42:47 --> Database Driver Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Controller Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Helper loaded: form_helper
+DEBUG - 2013-04-09 23:42:47 --> Session Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Helper loaded: string_helper
+DEBUG - 2013-04-09 23:42:47 --> Encrypt Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Session routines successfully run
+DEBUG - 2013-04-09 23:42:47 --> Model Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Model Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Model Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Model Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> Model Class Initialized
+DEBUG - 2013-04-09 23:42:47 --> File loaded: application/views/admin/components/page_head.php
+DEBUG - 2013-04-09 23:42:47 --> File loaded: application/views/medicine/overview.php
+DEBUG - 2013-04-09 23:42:47 --> File loaded: application/views/admin/components/page_tail.php
+DEBUG - 2013-04-09 23:42:47 --> File loaded: application/views/admin/_layout_main.php
+DEBUG - 2013-04-09 23:42:47 --> Final output sent to browser
+DEBUG - 2013-04-09 23:42:47 --> Total execution time: 0.0359
+DEBUG - 2013-04-09 23:43:20 --> Config Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Hooks Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Utf8 Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> UTF-8 Support Enabled
+DEBUG - 2013-04-09 23:43:20 --> URI Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Router Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Output Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Security Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Input Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-04-09 23:43:20 --> Language Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Loader Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Config file loaded: application/config/cms_config.php
+DEBUG - 2013-04-09 23:43:20 --> Helper loaded: url_helper
+DEBUG - 2013-04-09 23:43:20 --> Helper loaded: html_helper
+DEBUG - 2013-04-09 23:43:20 --> Helper loaded: cms_helper
+DEBUG - 2013-04-09 23:43:20 --> Database Driver Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Controller Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Helper loaded: form_helper
+DEBUG - 2013-04-09 23:43:20 --> Session Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Helper loaded: string_helper
+DEBUG - 2013-04-09 23:43:20 --> Encrypt Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Session garbage collection performed.
+DEBUG - 2013-04-09 23:43:20 --> Session routines successfully run
+DEBUG - 2013-04-09 23:43:20 --> Model Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Model Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Model Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Model Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> Model Class Initialized
+DEBUG - 2013-04-09 23:43:20 --> File loaded: application/views/admin/components/page_head.php
+DEBUG - 2013-04-09 23:43:20 --> File loaded: application/views/medicine/overview.php
+DEBUG - 2013-04-09 23:43:20 --> File loaded: application/views/admin/components/page_tail.php
+DEBUG - 2013-04-09 23:43:20 --> File loaded: application/views/admin/_layout_main.php
+DEBUG - 2013-04-09 23:43:20 --> Final output sent to browser
+DEBUG - 2013-04-09 23:43:20 --> Total execution time: 0.0302

@@ -15,8 +15,12 @@ class User extends Frontend_Controller {
 	}
 
 	public function index() {
-		// Fetch all users
-		$this->data['users'] = $this->user_m->get();
+		if (!$this->user_m->loggedin()) redirect('user/login');
+
+		$this->load->model('illness_m');
+
+		$this->data['user_medicine'] = $this->medicine_m->get_user_medicine($this->user_m->user->users_id);
+		$this->data['user_illness'] = $this->illness_m->get_user_illness($this->user_m->user->users_id);
 
 		// Load view
 		$this->data['subview'] = 'user/index';

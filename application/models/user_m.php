@@ -43,6 +43,8 @@ class User_M extends MY_Model {
 			)
 		);
 
+	public $user = NULL;
+
 	protected $_table_name = 'users';
 	protected $_primary_key = 'users_id';
 	protected $_order_by = 'name';
@@ -51,6 +53,10 @@ class User_M extends MY_Model {
 	public function __construct() {
 		parent::__construct();
 		$this->load->library('PBKDF2', 'pbkdf2');
+
+		if ($this->loggedin()) {
+			$this->user = $this->get_by(array('email' => $this->session->userdata['email']), TRUE);
+		}
 	}
 
 	public function login() {
@@ -61,6 +67,7 @@ class User_M extends MY_Model {
 		if (count($user)) {
 			// Check password
 			if ($this->confirm_hash($this->input->post('password'), $user->passhash)) {
+				$this->user = $user;
 				// Log in user
 				$data = array(
 					'name' => $user->name,

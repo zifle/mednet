@@ -92,8 +92,18 @@ class MY_Model extends CI_Model {
 		if ($and) $method = 'like';
 		else $method = 'or_like';
 		
-		foreach ($like as $col => $side) {
-			$this->db->$method($col, $query, $side);
+		if (is_array($query)) {
+			foreach ($query as $search) {
+				if (empty($search)) continue;
+				foreach ($like as $col => $side) {
+					$this->db->$method($col, $search, $side);
+				}
+			}
+		}
+		else {
+			foreach ($like as $col => $side) {
+				$this->db->$method($col, $query, $side);
+			}
 		}
 
 		if (!count($this->db->ar_orderby)) {
@@ -101,6 +111,7 @@ class MY_Model extends CI_Model {
 		}
 		return
 			$this->db
+			->group_by($this->_primary_key)
 			->get($this->_table_name)
 			->result();
 	}

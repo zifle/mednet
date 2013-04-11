@@ -11,6 +11,8 @@ body {
 	font-size: 14px;
 	color: #333;
 	margin: 0;
+	position: relative;
+	padding-bottom: 170px;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -83,6 +85,11 @@ a {
 				> li {
 					// list-style: none;
 					// display: inline-block;
+					&.divider-vertical {
+						height: 34px;
+						margin-top: 2px;
+						border-right-color: lightgrey;
+					}
 
 					> a {
 						text-decoration: none;
@@ -308,6 +315,49 @@ input {
 	}
 }
 
+.most-visited {
+	position: relative;
+	display: inline-block;
+	border: $border;
+	border-radius: 10px;
+	height: 50px;
+	width: 218px;
+	margin-bottom: 20px;
+
+	&:nth-child(3n+1) {
+		margin-left: 0;
+	}
+
+	.fill {
+		text-align: center;
+		vertical-align: middle;
+		line-height: 50px;
+		font-size: 18px;
+		text-decoration: none;
+		font-family: $georgia;
+	}
+}
+
+h3 > form {
+	display: inline-block;
+	margin-bottom: 0;
+	margin-left: 20px;
+
+	input.btn[type=submit] {
+		font-size: 13px;
+		line-height: 15px;
+		padding: 4px 7px;
+	}
+}
+
+.title {
+	margin-bottom: 0;
+}
+
+.results {
+	margin-bottom: 40px;
+}
+
 img.banner {
 	margin-bottom: 10px;
 }
@@ -356,8 +406,26 @@ img.banner {
 			margin-left: 3px;
 		}
 
-		&.index-field:nth-child(6n+1) {
+	}
+
+	.medicine {
+		.index.index-field:nth-child(6n+1) {
 			margin-left: 0;
+		}
+	}
+
+	.zipcodes {
+		.index {
+			font-size: 14px;
+
+			&.index-field {
+				margin-left: 5px;
+				margin-bottom: 5px;
+			}
+
+			&.index-field:nth-child(2n+1) {
+				margin-left: 0;
+			}
 		}
 	}
 

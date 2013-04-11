@@ -45,65 +45,105 @@ class Nyhed extends Frontend_Controller {
 		$this->load->view('admin/_layout_main', $this->data);
 	}
 	
-	public function image($id=NULL, $w=0, $h=0) {
-		if (!$id) exit;
-		$i_path = './img/articles/';
-		$a = $this->article_m->get($id, TRUE);
-		if ($a === FALSE) exit;
-		$i_name = $a->image;
-		$i_full = $i_path.$i_name;
-		if (file_exists($i_full)) {
-			$img = NULL;
-			$ext = strtolower(end(explode('.', $i_name)));
+	public function image($id=NULL, $w=940, $h=500) {
+		if (intval($w) <= 0) $w = 940;
+		if (intval($h) <= 0) $h = 500;
 
-			switch ($ext) {
-				case 'jpg':
-					$img = @imagecreatefromjpeg($i_full);
-					break;
-				case 'jpeg':
-					$img = @imagecreatefromjpeg($i_full);
-					break;
-				case 'png':
-					$img = @imagecreatefrompng($i_full);
-					break;
-				default:
-					echo "Not an image";
-					exit;
+		if ($id) {
+			$i_path = './img/articles/';
+			$a = $this->article_m->get($id);
+			
+			if ($a != FALSE) {
+				$i_name = $a->image;
+				$i_full = $i_path.$i_name;
 			}
+			else {
+				$i_name = '404.png';
+				$i_full = './img/404.png';
+			}
+		}
+		else {
+			$i_name = '404.png';
+			$i_full = './img/404.png';
+		}
+		
+		if (!file_exists($i_full)) {
+			$i_name = '404.png';
+			$i_full = './img/404.png';
+		}
 
-			$o_width = imagesx($img);
-			$o_height = imagesy($img);
+		$img = NULL;
+		$ext = strtolower(end(explode('.', $i_name)));
 
-			// Get scale ratio
-			$scale = max($w/$o_width, $h/$o_height);
+		// Get image resource
+		switch ($ext) {
+			case 'jpg':
+				$img = @imagecreatefromjpeg($i_full);
+				break;
+			case 'jpeg':
+				$img = @imagecreatefromjpeg($i_full);
+				break;
+			case 'png':
+				$img = @imagecreatefrompng($i_full);
+				break;
+			default:
+				$img = @imagecreatefrompng('./img/404.png');
+				exit;
+		}
 
-			if ($scale < 1) {
+		// Get image dimensions
+		$o_width = imagesx($img);
+		$o_height = imagesy($img);
+
+		// Get scale ratio
+		$scale = max($w/$o_width, $h/$o_height);
+		log_message('debug', 'Scale ratio of image: max('. $w/$o_width .', '. $h/$o_height .') = '.$scale);
+
+		if ($scale < 1) {
+			$do_scale = TRUE;
+			
+			$n_width = floor($scale*$o_width);
+			$n_height = floor($scale*$o_height);
+		}
+		else if(($scale = min($w/$o_width, $h/$o_height) < 1)) {
+			$do_scale = TRUE;
+
+			if ($w/$o_width < $h/$o_height) {
 				$n_width = floor($scale*$o_width);
 				$n_height = floor($scale*$o_height);
+			}
+			else {
+				$n_width = floor($scale*$o_width);
+				$n_height = floor($scale*$o_height);
+			}
+		}
+		else $do_scale = FALSE;
 
-				$tmp_img = imagecreatetruecolor($n_width, $n_height);
-				$tmp_img2 = imagecreatetruecolor($w, $h);
+		if ($do_scale) {
+			log_message('debug', 'New dimensions: '.$n_width.'x'.$n_height);
 
-				imagecopyresampled($tmp_img, $img, 0, 0, 0, 0, $n_width, $n_height, $o_width, $o_height);
+			$tmp_img = imagecreatetruecolor($n_width, $n_height);
+			$tmp_img2 = imagecreatetruecolor($w, $h);
 
-				if ($n_width == $w) {
-					$x = 0;
-					$y = ($n_height / 2) - ($h / 2);
-				}
-				else if ($n_height == $h) {
-					$x = ($n_width / 2) - ($w / 2);
-					$y = 0;
-				}
+			imagecopyresampled($tmp_img, $img, 0, 0, 0, 0, $n_width, $n_height, $o_width, $o_height);
 
-				imagecopyresampled($tmp_img2, $tmp_img, 0, 0, $x, $y, $w, $h, $w, $h);
-
-				imagedestroy($img);
-				imagedestroy($tmp_img);
-				$img = $tmp_img2;
+			if ($n_width == $w) {
+				$x = 0;
+				$y = ($n_height / 2) - ($h / 2);
+			}
+			else if ($n_height == $h) {
+				$x = ($n_width / 2) - ($w / 2);
+				$y = 0;
 			}
 
-			header('Content-Type: image/jpeg');
-			imagejpeg($img, NULL, 90);
-		} else exit;
+			imagecopyresampled($tmp_img2, $tmp_img, 0, 0, $x, $y, $w, $h, $w, $h);
+
+			imagedestroy($img);
+			imagedestroy($tmp_img);
+			$img = $tmp_img2;
+		}
+
+		header('Content-Type: image/jpeg');
+		imagejpeg($img, NULL, 90);
 	}
 }

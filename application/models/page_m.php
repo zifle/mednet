@@ -33,6 +33,13 @@ class Page_m extends MY_Model {
 	public function __construct() {
 		parent::__construct();
 	}
+
+	public function get($id = NULL, $single = FALSE) {
+		// If on frontend, filter non-visible pages
+		if (!$this->data['is_admin'])
+			$this->db->where('footer', 1);
+		return parent::get($id, $single);
+	}
 	
 	public function get_new() {
 		$page = new stdClass();

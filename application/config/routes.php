@@ -43,7 +43,7 @@ $route['404_override'] = '';
 
 $route['admin'] = 'admin/dashboard';
 $route['admin(/:any)'] = 'admin$1';
-// $route['(:any)?'] = 'nyhed/index/$1';
+$route['side(/:any)?'] = 'side/index$1';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

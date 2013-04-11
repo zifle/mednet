@@ -24,7 +24,10 @@ class Frontend_Controller extends MY_Controller {
 		$this->data['meta_title'] = '';
 
 		// Add menu if user is logged in
-		if ($this->user_m->loggedin()) $this->data['menu']['Min side'] = 'user';
+		if ($this->user_m->loggedin()) {
+			$this->data['menu']['divider'] = '';
+			$this->data['menu']['Min side'] = 'user';
+		}
 
 		$exception_uris = array(
 				'user/login',
@@ -46,7 +49,7 @@ class Frontend_Controller extends MY_Controller {
 				'base' => 'search/medicin/',
 				'data' => $this->medicine_m->get_index()
 			);
-		$oldnews = $this->article_m->get_after(0, 5);
+		$oldnews = $this->article_m->get_after(0, 6);
 		foreach ($oldnews as $article) {
 			$oldnews_parsed['nyhed/'.$article->articles_id] = $article->title;
 		}

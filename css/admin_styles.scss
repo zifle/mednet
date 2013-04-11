@@ -1,5 +1,12 @@
 @import 'variables';
 
+/* // Reset html from global styles.
+html {
+	width: auto;
+	min-height: auto;
+	margin: auto;
+} */
+
 .chzn-container {
 	margin-bottom: 10px;
 	border-radius: 3px;
@@ -38,6 +45,24 @@
 			background-image: none;
 			border: $border;
 		}
+	}
+}
+
+.defaultSkin {
+	td.mceToolbar[role=toolbar] {
+		background: -webkit-gradient(linear, 0 0, 0 100%, from(#dfdfdf), to(#ffffff));
+		background: -webkit-linear-gradient(#dfdfdf 0%, #ffffff 100%);
+		background: -moz-linear-gradient(#dfdfdf 0%, #ffffff 100%);
+		background: -o-linear-gradient(#dfdfdf 0%, #ffffff 100%);
+		background: linear-gradient(#dfdfdf 0%, #ffffff 100%);
+	}
+
+	.mceButton, .mceAction, .mceSplitButton .mceOpen {
+		background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#dfdfdf));
+		background-image: -webkit-linear-gradient(#ffffff 0%, #dfdfdf 100%);
+		background-image: -moz-linear-gradient(#ffffff 0%, #dfdfdf 100%);
+		background-image: -o-linear-gradient(#ffffff 0%, #dfdfdf 100%);
+		background-image: linear-gradient(#ffffff 0%, #dfdfdf 100%);
 	}
 }
 

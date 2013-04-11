@@ -6,7 +6,7 @@ class Medicin extends Frontend_Controller {
 		parent::__construct();
 
 		// Load sidebar
-		$this->db->limit(5);
+		$this->db->limit(6);
 		$oldnews = $this->article_m->get_by(array('medicine !=' => 'NULL'));
 		$oldnews_parsed = array();
 		foreach ($oldnews as $article) {
@@ -14,7 +14,7 @@ class Medicin extends Frontend_Controller {
 		}
 		$this->data['sidebar']['news'] = array(
 				'type' => 'links',
-				'title' => 'Ældre nyheder',
+				'title' => 'Nyheder',
 				'data' => $oldnews_parsed
 			);
 
@@ -33,18 +33,51 @@ class Medicin extends Frontend_Controller {
 
 	public function vis($id = NULL) {
 		// Return if id not set
-		if (!$id) redirect('nyhed');
+		if (!$id) redirect('medicin');
 
-		$this->data['article'] = $this->article_m->get($id);
+		$this->load->model('symptom_m');
+		$this->load->model('symptom_types_m');
+
+		$this->data['medicine'] = $this->medicine_m->get($id);
 		// Return if id not found (article might not be published)
-		if (!$this->data['article']) {
-			$this->statuses->addMessage('Kunne ikke finde nyhed');
+		if (!$this->data['medicine']) {
+			$this->statuses->addMessage('Kunne ikke finde medicin');
 			$this->statuses->save();
-			redirect('nyhed');
+			redirect('medicin');
 		}
 
+		$this->medicine_m->addView($id);
+
 		// Load view
-		$this->data['subview'] = 'article/show';
+		$this->data['subview'] = 'medicine/show';
 		$this->load->view('admin/_layout_main', $this->data);
+	}
+
+	public function add($id = NULL) {
+		if (!$id || !$this->user_m->loggedin()) redirect('medicin');
+
+		$this->load->model('symptom_m');
+		$this->load->model('symptom_types_m');
+
+		$this->data['medicine'] = $this->medicine_m->get($id);
+		if (!$this->data['medicine']) {
+			$this->statuses->addError('Kunne ikke tilføje medicin');
+			$this->statuses->save();
+			redirect('medicin');
+		}
+
+		$this->medicine_m->addToUser($id, $this->user_m->user->users_id);
+		$this->statuses->addSuccess('Medicin tilføjet til \'mit medicin\'');
+		$this->statuses->save();
+		redirect('medicin/vis/'.$id);
+	}
+
+	public function remove($id = NULL) {
+		if (!$id || !$this->user_m->loggedin()) redirect('medicin');
+
+		$this->medicine_m->removeFromUser($id, $this->user_m->user->users_id);
+		$this->statuses->addSuccess('Medicin fjernet fra \'mit medicin\'');
+		$this->statuses->save();
+		redirect('medicin/vis/'.$id);
 	}
 }

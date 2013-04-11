@@ -75,6 +75,9 @@ class Medicine_m extends MY_Model {
 				->where('medicine', $id ? $id : $r->$_primary_key)
 				->get('medicine_prices')
 				->result();
+
+			// Get symptoms
+			$r->symptom_types = $this->symptom_m->get_by_type_for('medicine', $r->medicine_id);
 		}
 		return $r;
 	}
@@ -101,12 +104,23 @@ class Medicine_m extends MY_Model {
 
 	public function get_top($limit) {
 		$this->db
-			->join('medicine_visits', 'medicine = medicine_id')
 			->select('COUNT(medicine_visits_id) visits, medicine.*')
+			->join('medicine_visits', 'medicine = medicine_id', 'left')
 			->group_by('medicine_id')
 			->order_by('visits DESC, title ASC')
 			->limit($limit);
 		return $this->get();
+	}
+
+	public function get_user_medicine($user) {
+		$this->db
+			->join('user_medicine', 'medicine = medicine_id')
+			->where('user', $user);
+		return $this->get();
+	}
+
+	public function addView($id) {
+		$this->db->set('medicine', $id)->insert('medicine_visits');
 	}
 
 	public function save($data, $id = NULL) {
@@ -166,6 +180,36 @@ class Medicine_m extends MY_Model {
 		}
 		// Save doses
 		$this->db->insert_batch('doses', $doss);
+	}
+
+	public function addToUser($medicine, $user) {
+		$r = $this->db
+			->where('user', $user)
+			->where('medicine', $medicine)
+			->get('user_medicine')
+			->result();
+		if (count($r)) return FALSE;
+		$this->db
+			->set('medicine', $medicine)
+			->set('user', $user)
+			->insert('user_medicine');
+		return TRUE;
+	}
+
+	public function removeFromUser($medicine, $user) {
+		$this->db
+			->where('user', $user)
+			->where('medicine', $medicine)
+			->delete('user_medicine');
+	}
+
+	public function is_users_medicine($medicine, $user) {
+		$r = $this->db
+			->where('user', $user)
+			->where('medicine', $medicine)
+			->get('user_medicine')
+			->result();
+		return count($r);
 	}
 	
 	public function get_new() {

@@ -11,11 +11,11 @@
 				<?php if (!$is_admin): ?>
 					<?php if ($this->user_m->loggedin()): ?>
 						<?php echo
-									$this->session->userdata('name')
+									$this->user_m->user->name
 								?
-									$this->session->userdata('name') . ' (' . $this->session->userdata('email') . ')'
+									$this->user_m->user->name . ' (' . $this->user_m->user->email . ')'
 								:
-									$this->session->userdata('email');
+									$this->user_m->user->email;
 						?> - <a href="<?php echo site_url('user/logout'); ?>">Log ud</a>
 					<?php else: ?>
 						<a href="<?php echo site_url('user/login'); ?>">Log ind</a> - <a href="<?php echo site_url('user/register'); ?>">Registrer</a>
@@ -29,10 +29,10 @@
 			<div class="navbar-inner">
 				<?php echo get_menu($menu); ?>
 				<?php if (!$is_admin): ?>
-				<?php echo form_open('search/all'); ?>
+				<?php echo form_open('search'); ?>
 					<div class="input-append pull-right">
-						<input type="text" class="span2" placeholder="Indtast søgning">
-						<button class="btn" type="button">Søg</button>
+						<input name="query" type="text" class="span2" placeholder="Indtast søgning">
+						<button class="btn" type="submit">Søg</button>
 					</div>
 				<?php echo form_close(); ?>
 				<?php ENDIF; ?>

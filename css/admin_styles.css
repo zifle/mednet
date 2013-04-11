@@ -1,3 +1,9 @@
+/* // Reset html from global styles.
+html {
+	width: auto;
+	min-height: auto;
+	margin: auto;
+} */
 .chzn-container { margin-bottom: 10px; border-radius: 3px; }
 .chzn-container > a { padding: 0 6px !important; border: 1px solid #b1b1b1 !important; line-height: 28px !important; height: 28px !important; background-image: none !important; }
 .chzn-container > a > span { margin: 0; }
@@ -5,6 +11,9 @@
 .chzn-container .chzn-choices { border-radius: inherit; }
 .chzn-container .chzn-choices .search-field input:focus { box-shadow: none !important; }
 .chzn-container .chzn-choices .search-choice { background-color: #ffffff; background-image: none; border: 1px solid #b1b1b1; }
+
+.defaultSkin td.mceToolbar[role=toolbar] { background: -webkit-gradient(linear, 0 0, 0 100%, from(#dfdfdf), to(white)); background: -webkit-linear-gradient(#dfdfdf 0%, white 100%); background: -moz-linear-gradient(#dfdfdf 0%, white 100%); background: -o-linear-gradient(#dfdfdf 0%, white 100%); background: linear-gradient(#dfdfdf 0%, white 100%); }
+.defaultSkin .mceButton, .defaultSkin .mceAction, .defaultSkin .mceSplitButton .mceOpen { background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#dfdfdf)); background-image: -webkit-linear-gradient(white 0%, #dfdfdf 100%); background-image: -moz-linear-gradient(white 0%, #dfdfdf 100%); background-image: -o-linear-gradient(white 0%, #dfdfdf 100%); background-image: linear-gradient(white 0%, #dfdfdf 100%); }
 
 .input-append { border-radius: 4px; }
 
