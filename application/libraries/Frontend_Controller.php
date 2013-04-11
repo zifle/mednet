@@ -29,11 +29,6 @@ class Frontend_Controller extends MY_Controller {
 			$this->data['menu']['Min side'] = 'user';
 		}
 
-		$exception_uris = array(
-				'user/login',
-				'user/logout'
-			);
-
 		$this->data['pages'] = $this->page_m->get_by(array('footer' => 1));
 		$this->db->limit(5);
 		$this->data['footer_articles'][] = (object) array('title' => 'Medicin', 'data' => $this->article_m->get_by(array('medicine !=' => 'NULL')));

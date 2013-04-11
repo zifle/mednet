@@ -78,7 +78,8 @@ class Article extends Admin_Controller {
 	
 				$this->load->library('upload', $config);
 				if (FALSE !== $this->upload->do_upload('image')) {
-					$this->article_m->save(array('image' => $this->upload->data()['file_name']), $id);
+					$upload = $this->upload->data();
+					$this->article_m->save(array('image' => $upload['file_name']), $id);
 				}
 				else {
 					$this->statuses->addError('Billede kunne ikke gemmes');
