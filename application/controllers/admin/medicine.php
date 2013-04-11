@@ -102,7 +102,7 @@ class Medicine extends Admin_Controller {
 		$symptoms = $this->symptom_m->get();
 		$a = array();
 		foreach ($symptoms as $symptom) {
-			$a[$symptom->type_id][$symptom->symptoms_id] = $symptom->title;
+			$a[$symptom->type_id][$symptom->symptoms_id] = $symptom->title .' - '.$symptom->description;
 		}
 		$this->data['symptoms'] = $a;
 
