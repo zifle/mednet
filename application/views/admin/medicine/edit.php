@@ -36,7 +36,7 @@
 </label>
 <?php 
 
-if (isset($_POST['doses[]']) && is_array($_POST['doses[]'])) $doses = $_POST['doses[]'];
+if (isset($_POST['doses']) && is_array($_POST['doses'])) $doses = $_POST['doses'];
 else $doses = $medicine->doses;
 if (isset($doses[0]) && is_object($doses[0])) {
 	foreach ($doses as &$dose) {
