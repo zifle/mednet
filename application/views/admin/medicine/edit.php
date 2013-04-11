@@ -61,10 +61,14 @@ if (isset($doses[0]) && is_object($doses[0])) {
 		<a href="#" class="icon-plus-sign addRow" data-html="doseshtml" data-parents="1"></a>
 	</label>
 <?php ENDIF; ?>
+<?php 
+if (isset($_POST['symptoms']) && is_array($_POST['symptoms'])) $submittet_symptoms = $_POST['symptoms'];
+else $submittet_symptoms = $medicine->symptoms;
+?>
 <?php foreach ($symptom_types as $type): ?>
 	<label class="row">
 		<div class="span2"><?php echo $type->title ?></div>
-		<?php echo form_multiselect('symptoms[]', $symptoms[$type->symptom_types_id], set_value('symptoms', $medicine->symptoms), 'class="span6 chzn-select" data-placeholder="Vælg relaterede symptomer"'); ?>
+		<?php echo form_multiselect('symptoms[]', $symptoms[$type->symptom_types_id], $submittet_symptoms, 'class="span6 chzn-select" data-placeholder="Vælg relaterede symptomer"'); ?>
 	</label>
 <?php ENDFOREACH; ?>
 	<?php 
