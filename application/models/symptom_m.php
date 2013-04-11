@@ -22,7 +22,7 @@ class Symptom_m extends MY_Model {
 			'description' => array(
 				'field' => 'description',
 				'label' => 'Beskrivelse',
-				'rules' => 'trim|required|max_length[255]|xss_clean'
+				'rules' => 'trim|max_length[255]|xss_clean'
 			)
 		);
 

@@ -31,7 +31,7 @@
 				<h4 class="title"><?php echo $title; ?></h4>
 				<?php foreach ($entries as $entry): ?>
 					<div class="row">
-						<p class="span2"><?php echo $entry->title; ?></p>
+						<p class="span<?php echo empty($entry->description) ? '6' : '2'; ?>"><?php echo $entry->title; ?></p>
 						<?php if (!empty($entry->description)): ?>
 							<p class="span4"><?php echo $entry->description; ?></p>
 						<?php ENDIF; ?>
