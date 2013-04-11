@@ -25,24 +25,21 @@
 	</div>
 </div>
 <?php foreach ($medicine->symptom_types as $title => $entries): ?>
-	<div class="row">
-		<div class="span7">
-			<h4 class="title"><?php echo $title; ?></h4>
-			<?php foreach ($entries as $entry): ?>
-				<div class="row">
-					<p class="span2"><?php echo $entry->title; ?></p>
-					<?php if (!empty($entry->description)): ?>
-						<p class="span4"><?php echo $entry->description; ?></p>
-					<?php ENDIF; ?>
-				</div>
-			<?php ENDFOREACH; ?>
-			<?php if (empty($entries)): ?>
-				<div class="row">
-					<i class="span6">Der blev ikke fundet nogle informationer om <?php echo strtolower($title); ?></i>
-				</div>
-			<?php ENDIF; ?>
+	<?php if (!empty($entries)): ?>
+		<div class="row">
+			<div class="span7">
+				<h4 class="title"><?php echo $title; ?></h4>
+				<?php foreach ($entries as $entry): ?>
+					<div class="row">
+						<p class="span2"><?php echo $entry->title; ?></p>
+						<?php if (!empty($entry->description)): ?>
+							<p class="span4"><?php echo $entry->description; ?></p>
+						<?php ENDIF; ?>
+					</div>
+				<?php ENDFOREACH; ?>
+			</div>
 		</div>
-	</div>
+	<?php ENDIF; ?>
 <?php ENDFOREACH; ?>
 <div class="row">
 	<div class="span7">
