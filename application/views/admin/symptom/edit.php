@@ -10,7 +10,7 @@
 </label>
 <label class="row">
 	<div class="span2">Type</div>
-	<?php echo form_dropdown('type', $symptom_types, set_value('type', $symptom->type), 'data-placeholder="Vælg symptom type" class="chzn-select"'); ?>
+	<?php echo form_dropdown('type', $symptom_types, set_value('type', $symptom->type_id), 'data-placeholder="Vælg symptom type" class="chzn-select"'); ?>
 </label>
 <div class="row">
 	<div class="span2"></div>
