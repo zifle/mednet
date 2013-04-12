@@ -39,7 +39,7 @@
 */
 
 $route['default_controller'] = "nyhed";
-$route['404_override'] = '';
+$route['404_override'] = 'nyhed/notfound';
 
 $route['admin'] = 'admin/dashboard';
 // $route['admin(/:any)'] = 'admin$1';

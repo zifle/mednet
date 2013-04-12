@@ -55,20 +55,20 @@ input:focus:invalid { box-shadow: 0 0 8px #fcc !important; }
 .articles .article { background: lightgrey; position: relative; }
 .articles .article .fill { box-shadow: inset 0 0 1px 1px #888; }
 .articles .article .info { position: absolute; bottom: 0; left: 0; width: 100%; height: 20%; background: rgba(255, 255, 255, 0.9); }
-.articles .article .info .title { margin: 0 10px; }
-.articles .article .info h3.title { line-height: 17px; }
+.articles .article .info .title { margin: 0 10px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+.articles .article .info h3.title { line-height: 17px; overflow: visible; }
 .articles .article .info h4.title { line-height: 30px; }
 .articles .article .info h5.title { line-height: 25px; }
 .articles .article:hover .title { text-decoration: underline; }
 .articles .article.article_medium { height: 150px; }
 .articles .article.article_small { height: 125px; }
 .articles .article.article_big { height: 200px; }
-.articles .article.article_big .info { top: 10px; left: 10px; bottom: auto; width: 300px; height: 55px; padding-top: 10px; }
+.articles .article.article_big .info { top: 10px; left: 10px; bottom: auto; min-width: 300px; max-width: 450px; height: 55px; padding-top: 10px; }
 .articles .article.article_big .info .teaser { margin: 3px 10px; line-height: 15px; font-family: Tahoma, Kalimati, "DejaVu Sans", Verdana; }
 
 .most-visited { position: relative; display: inline-block; border: 1px solid #b1b1b1; border-radius: 10px; height: 50px; width: 218px; margin-bottom: 20px; }
 .most-visited:nth-child(3n+1) { margin-left: 0; }
-.most-visited .fill { text-align: center; vertical-align: middle; line-height: 50px; font-size: 18px; text-decoration: none; font-family: Georgia, "Nimbus Roman No9 L"; }
+.most-visited .fill { text-align: center; vertical-align: middle; line-height: 50px; font-size: 18px; text-decoration: none; font-family: Georgia, "Nimbus Roman No9 L"; overflow: hidden; }
 
 h3 > form { display: inline-block; margin-bottom: 0; margin-left: 20px; }
 h3 > form input.btn[type=submit] { font-size: 13px; line-height: 15px; padding: 4px 7px; }
@@ -91,7 +91,7 @@ img.banner { margin-bottom: 10px; }
 .sidebar .zipcodes .index { font-size: 14px; }
 .sidebar .zipcodes .index.index-field { margin-left: 5px; margin-bottom: 5px; }
 .sidebar .zipcodes .index.index-field:nth-child(2n+1) { margin-left: 0; }
-.sidebar .link { display: block; line-height: 17px; }
+.sidebar .link { display: block; line-height: 17px; margin-bottom: 7px; }
 
 .footer { position: absolute; bottom: 0; width: 920px; padding: 9px; border: 1px solid #b1b1b1; border-bottom: 0; border-top-left-radius: 4px; border-top-right-radius: 4px; background: linear-gradient(bottom, #dfdfdf 0%, white 100%); background: -webkit-linear-gradient(bottom, #dfdfdf 0%, white 100%); background: -moz-linear-gradient(bottom, #dfdfdf 0%, white 100%); background: -o-linear-gradient(bottom, #dfdfdf 0%, white 100%); background: -ms-linear-gradient(bottom, #dfdfdf 0%, white 100%); }
 .footer .span3 { width: 215px; }

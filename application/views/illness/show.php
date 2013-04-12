@@ -20,7 +20,7 @@
 	<?php if (empty($entries)) continue; ?>
 	<div class="row">
 		<div class="span7">
-			<h4 class="title"><?php echo $title == 'bivirkninger' ? 'Symptomer' : $title; ?></h4>
+			<h4 class="title"><?php echo strtolower($title) == 'bivirkninger' ? 'Symptomer' : $title; ?></h4>
 			<?php foreach ($entries as $entry): ?>
 				<div class="row">
 					<p class="span2"><?php echo $entry->title; ?></p>

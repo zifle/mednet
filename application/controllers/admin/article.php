@@ -65,7 +65,8 @@ class Article extends Admin_Controller {
 
 		// Process the form
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->article_m->array_from_post(array('title', 'content', 'teaser', 'symptom', 'medicine', 'pharmacy', 'illness', 'publish'));
+			$data = $this->article_m->array_from_post(array('title', 'content', 'teaser', 'illness', 'symptom', 'medicine', 'pharmacy', 'publish'));
+			
 			$id = $this->article_m->save($data, $id);
 
 			if (!empty($_FILES['image']['tmp_name'])) {

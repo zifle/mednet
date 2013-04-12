@@ -46,7 +46,7 @@ class Frontend_Controller extends MY_Controller {
 			);
 		$oldnews = $this->article_m->get_after(0, 6);
 		foreach ($oldnews as $article) {
-			$oldnews_parsed['nyhed/'.$article->articles_id] = $article->title;
+			$oldnews_parsed['nyhed/vis/'.$article->articles_id] = $article->title;
 		}
 		$this->data['sidebar']['news'] = array(
 				'type' => 'links',

@@ -70,7 +70,7 @@
 			<div class="span3">
 				<span class="title"><?php echo $info->title; ?></span>
 				<?php foreach ($info->data as $article): ?>
-					<a href="<?php echo site_url('nyhed/'.$article->articles_id); ?>"><?php echo $article->title; ?></a><br>
+					<a href="<?php echo site_url('nyhed/vis/'.$article->articles_id); ?>"><?php echo $article->title; ?></a><br>
 				<?php ENDFOREACH; ?>
 				<?php if (!count($info->data)): ?>
 					<i>Ingen nyheder fundet</i>

@@ -32,22 +32,22 @@ class Article_m extends MY_Model {
 			'symptom' => array(
 				'field' => 'symptom',
 				'label' => 'Symptomer',
-				'rules' => ''
+				'rules' => 'trim'
 			),
 			'pharmacy' => array(
 				'field' => 'pharmacy',
 				'label' => 'Apoteker',
-				'rules' => ''
+				'rules' => 'trim'
 			),
 			'medicine' => array(
 				'field' => 'medicine',
 				'label' => 'Medicin',
-				'rules' => ''
+				'rules' => 'trim'
 			),
 			'illness' => array(
 				'field' => 'illness',
 				'label' => 'Sygdomme',
-				'rules' => ''
+				'rules' => 'trim'
 			),
 		);
 

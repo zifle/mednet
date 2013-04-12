@@ -158,8 +158,8 @@ class Search extends Frontend_Controller {
 			$s = explode('-', $search);
 			if (count($s) == 2) {
 				$this->db
-					->where('zipcode >', $s[0])
-					->where('zipcode <', $s[1]);
+					->where('zipcode >=', $s[0])
+					->where('zipcode <=', $s[1]);
 				$this->data['search_results']['pharmacy'] = $this->pharmacy_m->get();
 				return;
 			}

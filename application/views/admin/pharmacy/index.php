@@ -10,7 +10,7 @@
 	<thead>
 		<th>Postnr.</th>
 		<th>Navn</th>
-		<th>Koordinater</th>
+		<th>Adresse</th>
 		<th class="span1">Rediger</th>
 		<th class="span1">Slet</th>
 	</thead>
@@ -19,7 +19,7 @@
 			<tr>
 				<td><?php echo $pharmacy->zipcode; ?></td>
 				<td><?php echo $pharmacy->title; ?></td>
-				<td><?php echo $pharmacy->longitude && $pharmacy->latitude ? 'Ja' : 'Nej'; ?></td>
+				<td><?php echo $pharmacy->address ? 'Ja' : 'Nej'; ?></td>
 				<td><?php echo btn_edit(site_url('admin/pharmacy/edit/'.$pharmacy->pharmacies_id)); ?></td>
 				<td><?php echo btn_delete(site_url('admin/pharmacy/delete/'.$pharmacy->pharmacies_id)); ?></td>
 			</tr>

@@ -114,6 +114,8 @@ class Illness_m extends MY_Model {
 		// Clear illness' symptoms
 		$this->db->where('illness', $id)->delete('illness_symptoms');
 
+		if (empty($symptoms)) return;
+
 		// Save illness' symptoms
 		$sympts = array();
 		foreach ($symptoms as $symptom) {

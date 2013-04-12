@@ -263,10 +263,14 @@ input {
 
 			.title {
 				margin: 0 10px;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
 			}
 
 			h3.title {
 				line-height: 17px;
+				overflow: visible;
 			}
 
 			h4.title {
@@ -297,7 +301,8 @@ input {
 				top: 10px;
 				left: 10px;
 				bottom: auto;
-				width: 300px;
+				min-width: 300px;
+				max-width: 450px;
 				height: 55px;
 				padding-top: 10px;
 				
@@ -335,6 +340,7 @@ input {
 		font-size: 18px;
 		text-decoration: none;
 		font-family: $georgia;
+		overflow: hidden;
 	}
 }
 
@@ -432,6 +438,7 @@ img.banner {
 	.link {
 		display: block;
 		line-height: 17px;
+		margin-bottom: 7px;
 	}
 }
 

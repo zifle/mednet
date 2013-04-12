@@ -57,7 +57,7 @@ class Pharmacy extends Admin_Controller {
 
 		// Process the form
 		if ($this->form_validation->run() == TRUE) {
-			$data = $this->pharmacy_m->array_from_post(array('title', 'zipcode', 'longitude', 'latitude'));
+			$data = $this->pharmacy_m->array_from_post(array('title', 'zipcode', 'address'));
 			$this->pharmacy_m->save($data, $id);
 			$this->statuses->addSuccess('Apotek gemt');
 			$this->statuses->save();

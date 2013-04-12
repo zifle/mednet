@@ -32,7 +32,7 @@ class Apotek extends Frontend_Controller {
 		$oldnews = $this->article_m->get_by(array('pharmacy !=' => 'NULL'));
 		$oldnews_parsed = array();
 		foreach ($oldnews as $article) {
-			$oldnews_parsed['nyhed/'.$article->articles_id] = $article->title;
+			$oldnews_parsed['nyhed/vis/'.$article->articles_id] = $article->title;
 		}
 		$this->data['sidebar']['news'] = array(
 				'type' => 'links',

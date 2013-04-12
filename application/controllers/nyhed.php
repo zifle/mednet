@@ -13,7 +13,7 @@ class Nyhed extends Frontend_Controller {
 		$oldnews = $this->article_m->get_after(6, 5);
 		$oldnews_parsed = array();
 		foreach ($oldnews as $article) {
-			$oldnews_parsed['nyhed/'.$article->articles_id] = $article->title;
+			$oldnews_parsed['nyhed/vis/'.$article->articles_id] = $article->title;
 		}
 		$this->data['sidebar']['news'] = array(
 				'type' => 'links',
@@ -44,6 +44,12 @@ class Nyhed extends Frontend_Controller {
 		$this->data['subview'] = 'article/show';
 		$this->load->view('admin/_layout_main', $this->data);
 	}
+
+	public function notfound() {
+		$this->statuses->addError('Den ønskede side kunne ikke findes.');
+		$this->statuses->save();
+		redirect('/');
+	}
 	
 	public function image($id=NULL, $w=940, $h=500) {
 		if (intval($w) <= 0) $w = 940;
@@ -53,7 +59,7 @@ class Nyhed extends Frontend_Controller {
 			$i_path = './img/articles/';
 			$a = $this->article_m->get($id);
 			
-			if ($a != FALSE) {
+			if ($a != FALSE && !empty($a->image)) {
 				$i_name = $a->image;
 				$i_full = $i_path.$i_name;
 			}

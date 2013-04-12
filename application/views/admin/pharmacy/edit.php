@@ -9,12 +9,8 @@
 	<?php echo form_input('zipcode', set_value('zipcode', $pharmacy->zipcode)); ?>
 </label>
 <label class="row">
-	<div class="span2">Længdegrad</div>
-	<?php echo form_input('longitude', set_value('longitude', $pharmacy->longitude)); ?>
-</label>
-<label class="row">
-	<div class="span2">Breddegrad</div>
-	<?php echo form_input('latitude', set_value('latitude', $pharmacy->latitude)); ?>
+	<div class="span2">Adresse</div>
+	<?php echo form_input('address', set_value('address', $pharmacy->address)); ?>
 </label>
 <div class="row">
 	<div class="span2"></div>

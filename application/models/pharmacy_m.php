@@ -12,24 +12,18 @@ class Pharmacy_m extends MY_Model {
 			'title' => array(
 				'field' => 'title',
 				'label' => 'Navn',
-				'rules' => 'trim|required|max_length[20]|xss_clean'
+				'rules' => 'trim|required|max_length[40]|xss_clean'
 			),
 			'zipcode' => array(
 				'field' => 'zipcode',
 				'label' => 'Postnr.',
 				'rules' => 'trim|required|exact_length[4]|is_natural|xss_clean'
 			),
-			'longitude' => array(
-				'field' => 'longitude',
-				'label' => 'Længdegrad',
-				'rules' => 'trim|max_length[15]|numeric|xss_clean'
-			),
-			'latitude' => array(
-				'field' => 'latitude',
-				'label' => 'Breddegrad',
-				'rules' => 'trim|max_length[15]|numeric|xss_clean'
-			),
-
+			'address' => array(
+				'field' => 'address',
+				'label' => 'Adresse',
+				'rules' => 'trim|max_length[255]|xss_clean'
+			)
 		);
 
 	public function __construct() {
@@ -54,8 +48,7 @@ class Pharmacy_m extends MY_Model {
 		$symptom = new stdClass();
 		$symptom->title = '';
 		$symptom->zipcode = '';
-		$symptom->longitude = '';
-		$symptom->latitude = '';
+		$symptom->address = '';
 		return $symptom;
 	}
 	

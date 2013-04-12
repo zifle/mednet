@@ -57,7 +57,7 @@
 						<td><?php echo $price->receipt_required?'Recept':'Håndkøb'; ?></td>
 						<td><?php echo $price->doses; ?></td>
 						<td><?php echo $price->quantity; ?> <?php echo $price->quantity_type; ?></td>
-						<td><?php echo number_format($price->price, 2, ',', '.'); ?></td>
+						<td><?php echo (number_format($price->price, 2, ',', '.') == '0,00') ? 'Ikke fast pris' : number_format($price->price, 2, ',', '.'); ?></td>
 					</tr>
 				<?php ENDFOREACH; ?>
 			</tbody>
